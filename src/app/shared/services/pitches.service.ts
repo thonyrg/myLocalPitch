@@ -10,6 +10,7 @@ import * as settings from  '../../app.settings';
 export class PitchesService {
 
   searchResults: BehaviorSubject<PitchSlot[]> = new BehaviorSubject<PitchSlot[]>([]);
+  showNoResults: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private httpClient: HttpClient) { }
 
@@ -36,6 +37,10 @@ export class PitchesService {
   // Update searchResults
   onUpdateSearchResults(newResults: PitchSlot[]) {
     this.searchResults.next(newResults);
+  }
+
+  onShowNoResults(newValue) {
+    this.showNoResults.next(newValue);
   }
 
 }

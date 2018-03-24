@@ -22,4 +22,7 @@
       <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
   </div>
+  <div class="noResults" *ngIf="showNoResults">
+    <span>No results found.</span>
+  </div>
 </div>

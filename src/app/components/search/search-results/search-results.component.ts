@@ -14,12 +14,17 @@ export class SearchResultsComponent implements OnInit {
   page: number = 1;
   itemsPerPage: number = settings.itemsPerPage;
   resultsList: PitchSlot[] = [];
+  showNoResults: boolean = false;
 
   constructor(private service: PitchesService) { }
 
   ngOnInit() {
+    this.service.showNoResults
+      .subscribe(val => this.showNoResults = val);
+      
     this.service.searchResults
       .subscribe(results => {
+        console.log(results);
         this.resultsList = results;
       });
   }

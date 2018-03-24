@@ -93,6 +93,7 @@ export class SearchBarComponent {
     let mappedSlots: PitchSlot[] = [];
     this.service.getPitchesAvailability(f.pitchId, f.startDate, f.endDate)
     .subscribe((results: any) => {
+      this.service.onShowNoResults(false);
       const resData = results.data;
       resData.map(res => {
         let aux = {
@@ -104,6 +105,9 @@ export class SearchBarComponent {
         };
         mappedSlots.push(aux);
       });
+      if(resData.length === 0) {
+        this.service.onShowNoResults(true);
+      }
       this.service.onUpdateSearchResults(mappedSlots);
     });
   }
