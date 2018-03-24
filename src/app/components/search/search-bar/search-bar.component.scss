@@ -1,0 +1,39 @@
+.searchBar {
+    height: 100px;
+}
+
+.wrapper {
+    display: flex;
+    height: 40px;
+    align-items: center;
+
+    div {
+        display: flex;
+        flex-grow: 1;
+        height: 30px;
+
+        label {
+            margin-left: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            flex-grow: 1;
+            height: 30px;
+            margin-left: 5px;
+        }
+
+        button {
+            margin-left: 5px;
+        }
+    }
+}
+
+.errorMsg {
+    text-align: center;
+
+    span {
+        font-weight: bold;
+        color: red;
+    }
+}

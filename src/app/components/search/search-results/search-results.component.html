@@ -1,3 +1,25 @@
-<p>
-  search-results works!
-</p>
+<div class="container">
+  <div *ngIf="resultsList.length > 0">
+    <div class="row table--header">
+        <div class="col-sm table--header__item">Slot Id</div>
+        <div class="col-sm table--header__item">Start date</div>
+        <div class="col-sm table--header__item">Duration</div>
+        <div class="col-sm table--header__item">Price (GBP)</div>
+        <div class="col-sm table--header__item">Price (EUR)</div>
+        <div class="col-sm table--header__item">Availabilities</div>
+    </div>
+    <div *ngFor="let slot of resultsList | paginate: { itemsPerPage: itemsPerPage, currentPage: page }">
+      <div class="row table--body">
+          <div class="col-sm table--body__item">{{slot.slotId}}</div>
+          <div class="col-sm table--body__item">{{slot.startDate | formatDate}}</div>
+          <div class="col-sm table--body__item">{{slot.startDate | calculateDuration: slot.endDate}}</div>
+          <div class="col-sm table--body__item">{{slot.priceGbp}}</div>
+          <div class="col-sm table--body__item">{{slot.priceGbp | exchangeGbpToEuro}}</div>
+          <div class="col-sm table--body__item">{{slot.availabilities}}</div>
+      </div>
+    </div>
+    <div class="pagination-controls">
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+  </div>
+</div>

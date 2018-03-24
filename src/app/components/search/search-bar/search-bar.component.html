@@ -1,3 +1,44 @@
-<p>
-  search-bar works!
-</p>
+<div class="container searchBar">
+  <form #f="ngForm" (ngSubmit)="checkDateRange(f)" novalidate>
+    <div class="wrapper">
+        <div>
+          <label for="txtPitchId">Pitch Id</label>
+          <input 
+            type="text" 
+            name="pitchId" 
+            ngModel
+            #pitchId = "ngModel"
+            pattern="\d+"
+            onlyNumbers
+            required
+          >
+        </div>
+        <div>
+          <label for="txtStartDate">Start Date</label>
+          <input 
+            type="date" 
+            name="startDate"
+            placeholder="dd/mm/yyyy"
+            ngModel
+            #startDate = "ngModel"
+          >
+        </div>
+        <div>
+          <label for="txtEndDate">End Date</label>
+          <input 
+            type="date" 
+            name="endDate" 
+            placeholder="dd/mm/yyyy"
+            ngModel
+            #endDate = "ngModel"
+          >
+        </div>
+        <div>
+          <button type="submit" [disabled]="!f.valid"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+        </div>
+    </div>
+    <div class="errorMsg" *ngIf="errorMsg">
+      <span>{{errorMsg}}</span>
+    </div>
+  </form>
+</div>
