@@ -21,10 +21,9 @@ export class SearchResultsComponent implements OnInit {
   ngOnInit() {
     this.service.showNoResults
       .subscribe(val => this.showNoResults = val);
-      
+
     this.service.searchResults
       .subscribe(results => {
-        console.log(results);
         this.resultsList = results;
       });
   }
