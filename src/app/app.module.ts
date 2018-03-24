@@ -14,7 +14,7 @@ import { SearchResultsComponent } from './components/search/search-results/searc
 import { OnlyNumbersDirective } from './shared/directives/only-numbers.directive';
 // Pipes
 import { FormatDatePipe } from './shared/pipes/format-date.pipe';
-import { GboToEuroPipe } from './shared/pipes/gbp-to-euro.pipe';
+import { GbpToEuroPipe } from './shared/pipes/gbp-to-euro.pipe';
 import { CalculateDurationPipe } from './shared/pipes/calculate-duration.pipe';
 import { HeaderComponent } from './components/header/header.component';
 
@@ -26,7 +26,7 @@ import { HeaderComponent } from './components/header/header.component';
     SearchResultsComponent,
     OnlyNumbersDirective,
     FormatDatePipe,
-    GboToEuroPipe,
+    GbpToEuroPipe,
     CalculateDurationPipe,
     HeaderComponent
   ],

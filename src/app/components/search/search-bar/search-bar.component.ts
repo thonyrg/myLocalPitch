@@ -27,7 +27,7 @@ export class SearchBarComponent {
   }
 
   // Check if the difference in days between two dates is smaller than or equal the nDays passed by parameter
-  isDatesWithinRange(sd, ed, nDays) {
+  isDatesOutsideRange(sd, ed, nDays) {
     return moment(ed).diff(moment(sd), 'days') > nDays;
   }
 
@@ -77,7 +77,7 @@ export class SearchBarComponent {
         return false;
       }
 
-      if(this.isDatesWithinRange(sd, ed, settings.maxDateDifference)) {
+      if(this.isDatesOutsideRange(sd, ed, settings.maxDateDifference)) {
         this.errorMsg = `Date range cannot be greater than ${settings.maxDateDifference} days`;
         return false;
       }

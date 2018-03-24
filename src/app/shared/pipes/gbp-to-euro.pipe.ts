@@ -5,7 +5,7 @@ import * as settings from  '../../app.settings';
 @Pipe({
     name: 'exchangeGbpToEuro'
 })
-export class GboToEuroPipe implements PipeTransform {
+export class GbpToEuroPipe implements PipeTransform {
     transform(value: any) {
         return (value * settings.gbpToEurRate).toFixed(2);
     }
