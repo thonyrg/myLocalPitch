@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import 'rxjs/Rx';
 
 import { PitchSlot } from './../../components/search/search-results/pitch-slot.model';
-import * as settings from  '../../app.settings';
+import * as settings from '../../app.settings';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 @Injectable()
 export class PitchesService {
@@ -19,7 +18,7 @@ export class PitchesService {
     let url = '';
     if (startDate && endDate) {
       url = `${settings.pitchesBaseUrl}${pitchId}/slots?filter[starts]=${startDate}&filter[ends]=${endDate}`;
-    } else if(!startDate && !endDate) {
+    } else if (!startDate && !endDate) {
       url = `${settings.pitchesBaseUrl}${pitchId}/slots`;
     } else if (startDate && !endDate) {
       url = `${settings.pitchesBaseUrl}${pitchId}/slots?filter[starts]=${startDate}`;

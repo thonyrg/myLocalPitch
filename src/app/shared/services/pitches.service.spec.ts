@@ -4,9 +4,6 @@ import { PitchesService } from './pitches.service';
 
 describe(`PitchesService`, () => {
 
-    let http: HttpTestingController;
-    let service: PitchesService;
-
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [HttpClientTestingModule],
@@ -21,7 +18,7 @@ describe(`PitchesService`, () => {
     it(`should successfully get the list of slots available`, inject([HttpTestingController, PitchesService],
         (httpMock: HttpTestingController, service: PitchesService) => {
           // We call the service
-          service.getPitchesAvailability('32990', '2018-01-09', '2018-01-15').subscribe(data => {
+          service.getPitchesAvailability('32990', '2018-01-09', '2018-01-15').subscribe((data: any) => {
             expect(data.data.length).toBe(1);
             expect(data.data[0].type).toBe('slots');
             expect(data.data[0].attributes.price).toBe('12.05');
@@ -32,15 +29,15 @@ describe(`PitchesService`, () => {
           // Then we set the fake data to be returned by the mock
           req.flush({data: [
             {
-                "type": "slots",
-                "id": "446269",
-                "attributes": {
-                    "starts": "2018-01-09T06:40:00+00:00",
-                    "ends": "2018-01-09T07:20:00+00:00",
-                    "price": "12.05",
-                    "admin_fee": "0.00",
-                    "currency": "GBP",
-                    "availabilities": 0
+                'type': 'slots',
+                'id': '446269',
+                'attributes': {
+                    'starts': '2018-01-09T06:40:00+00:00',
+                    'ends': '2018-01-09T07:20:00+00:00',
+                    'price': '12.05',
+                    'admin_fee': '0.00',
+                    'currency': 'GBP',
+                    'availabilities': 0
                 }
             }
           ]});
